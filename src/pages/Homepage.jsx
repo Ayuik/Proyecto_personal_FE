@@ -9,7 +9,7 @@ function HomePage() {
             <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
                 <Home />
             </section>
-            <section id="about" className="py-20 bg-gray-100">
+            <section id="about" className="py-20 bg-gray-200">
                 <About />
             </section>          
         </div>
