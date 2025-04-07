@@ -4,6 +4,7 @@ import About from "../components/About";
 import Works from "../components/Works";
 import Courses from "../components/Courses";
 import Contact from "../components/Contact";
+import Testimonials from "../components/Testimonials";
 
 function HomePage() {
     return (
