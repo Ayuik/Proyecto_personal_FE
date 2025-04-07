@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getWorks } from "..services/worksapi";
+import { getWorks } from "../services/worksapi";
 
 function Works() {
 /* const [works, setWorks] = useState([]);
