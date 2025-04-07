@@ -1,4 +1,20 @@
+import { getTestimonials } from "../services/testimonialsapi";
+import { useState, useEffect } from "react";
+
 function Testimonials() {
+
+    /* const [testimonials, setTestimonials] = useState([]);
+    
+        useEffect(() => {
+          const fetchData = async () => {
+            
+              const data = await getTestimonials();
+              setTestimonials(data);
+            
+          };
+          fetchData();
+        }, [getTestimonials]); */
+
   const testimonials = [
     {
       id_testimonial: "1",

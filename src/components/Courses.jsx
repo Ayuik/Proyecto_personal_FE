@@ -1,4 +1,18 @@
+import { getCourses } from "../services/coursesapi";
+import { useState, useEffect } from "react";
 function Courses (){
+    /* const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        
+          const data = await getCourses();
+          setCourses(data);
+        
+      };
+      fetchData();
+    }, [getCourses]); */
+
     const courses = [
         {
             id_course: 1,
@@ -6,9 +20,9 @@ function Courses (){
           course_duration: "60mins",
           course_description: "Descripción del curso 1",
           course_videos: 32,
-          course_category_id: "Electrónica para musicos",
+          course_category_id: "Producción",
           course_price: 99.99,
-          course_cover_id: "https://placeholder.pics/svg/384x192/DEDEDE/555555/Curso%201",
+          course_cover: "https://cdn.pixabay.com/photo/2014/01/31/21/39/recording-255869_1280.jpg",
         },
         {
             id_course: 2,
@@ -16,19 +30,19 @@ function Courses (){
           course_duration: "1200mins",
           course_description: "Descripción del curso 2",
           course_videos: 24,
-          course_category_id: "Masterización",
+          course_category_id: "Mezcla",
           course_price: 129.99,
-          course_cover_id: "https://placeholder.pics/svg/384x192/DEDEDE/555555/Curso%202",
+          course_cover: "https://cdn.pixabay.com/photo/2014/07/14/11/37/sound-studo-393042_1280.jpg",
         },
         {
           id_course: 3,
           course_title: "Masterización profesional",
           course_duration: "30mins",
-          course_description: "Descripción del curso 3",
+          course_description: "Masterización",
           course_videos: 18,
           course_category_id: "Mixing",
           course_price: 149.99,
-          course_cover_id: "https://placeholder.pics/svg/384x192/DEDEDE/555555/Curso%203",
+          course_cover: "https://cdn.pixabay.com/photo/2025/01/10/20/57/pro-audio-9324828_1280.jpg",
         },
       ]
 
@@ -40,7 +54,7 @@ return (
               <div key={course.id_course} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow bg-white">
                 <div className="h-48 bg-gray-200">
                   <img 
-                    src={course.course_cover_id || "/placeholder.svg"}
+                    src={course.course_cover}
                     alt={course.course_title} 
                     className="w-full h-full object-cover"
                   />

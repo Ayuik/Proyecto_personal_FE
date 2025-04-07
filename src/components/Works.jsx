@@ -1,5 +1,19 @@
+import { useState, useEffect } from "react";
+import { getWorks } from "..services/worksapi";
+
 function Works() {
-//Solo para probar
+/* const [works, setWorks] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        
+          const data = await getWorks();
+          setWorks(data);
+        
+      };
+      fetchData();
+    }, [getWorks]); */
+
   const works = [
     {
       id_work: 1,
