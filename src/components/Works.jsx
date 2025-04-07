@@ -7,8 +7,8 @@ function Works() {
       work_link:"",
       work_description: "Descripción del proyecto 1",
       work_tags: [
-        { tag_id: 1, tag_name: "Tag 1" },
-        { tag_id: 2, tag_name: "Tag 2" },
+        { id_tag: 1, tag_name: "Tag 1" },
+        { id_tag: 2, tag_name: "Tag 2" },
       ],
     },
     {
@@ -17,8 +17,8 @@ function Works() {
       work_link:"",
       work_description: "Descripción del proyecto 2",
       work_tags: [
-        { tag_id: 3, tag_name: "Tag 3" },
-        { tag_id: 4, tag_name: "Tag 4" },
+        { id_tag: 3, tag_name: "Tag 3" },
+        { id_tag: 4, tag_name: "Tag 4" },
       ],
     },
     {
@@ -27,8 +27,8 @@ function Works() {
         work_link:"",
         work_description: "Descripción del proyecto 2",
         work_tags: [
-          { tag_id: 3, tag_name: "Tag 3" },
-          { tag_id: 4, tag_name: "Tag 4" },
+          { id_tag: 3, tag_name: "Tag 3" },
+          { id_tag: 4, tag_name: "Tag 4" },
         ],
       },
       {
@@ -37,8 +37,8 @@ function Works() {
         work_link:"",
         work_description: "Descripción del proyecto 2",
         work_tags: [
-          { tag_id: 3, tag_name: "Tag 3" },
-          { tag_id: 4, tag_name: "Tag 4" },
+          { id_tag: 3, tag_name: "Tag 3" },
+          { id_tag: 4, tag_name: "Tag 4" },
         ],
       },
       {
@@ -47,8 +47,8 @@ function Works() {
         work_link:"",
         work_description: "Descripción del proyecto 2",
         work_tags: [
-          { tag_id: 3, tag_name: "Tag 3" },
-          { tag_id: 4, tag_name: "Tag 4" },
+          { id_tag: 3, tag_name: "Tag 3" },
+          { id_tag: 4, tag_name: "Tag 4" },
         ],
       },
   ];
@@ -75,7 +75,7 @@ function Works() {
               <div className="flex flex-wrap gap-2 mt-2">
                 {work.work_tags.map((tag) => (
                   <span
-                    key={tag.tag_id}
+                    key={tag.id_tag}
                     className="px-3 py-1 bg-purple-500 text-sm rounded-full"
                   >
                     {tag.tag_name}
