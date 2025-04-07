@@ -4,11 +4,24 @@ import Works from "../components/Works";
 import Courses from "../components/Courses";
 import Contact from "../components/Contact";
 import Testimonials from "../components/Testimonials";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function HomePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
     return (
         <>
-            <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
+            <section id="home" className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
                 <Home />
             </section>
             <section id="about" className="py-20 bg-gray-200">
