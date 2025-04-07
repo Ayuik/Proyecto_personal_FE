@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Home from "../components/Home";
 import About from "../components/About";
 import Works from "../components/Works";
@@ -8,8 +7,7 @@ import Testimonials from "../components/Testimonials";
 
 function HomePage() {
     return (
-        <div className="min-h-screen">
-            <Header />
+        <>
             <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
                 <Home />
             </section>
@@ -28,7 +26,7 @@ function HomePage() {
             <section id="contact" className="py-20 bg-white">
                 <Contact />
             </section>     
-        </div>
+        </>
     );
 }
 
