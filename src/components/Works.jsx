@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getWorks } from "../services/worksapi";
+import { Link } from "react-router-dom"; 
 
 function Works() {
 /* const [works, setWorks] = useState([]);
@@ -101,15 +102,15 @@ function Works() {
         ))}
       </div>
       <div className="text-center mt-12">
-        <a
-          href="#"
+        <Link
+          to="/workspage"
           className="px-6 py-3 border border-purple-400 text-purple-400 rounded-md hover:bg-purple-900 hover:bg-opacity-30 transition-colors inline-block"
         >
           Ver todos los trabajos
-        </a>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Works;
+export default Works
