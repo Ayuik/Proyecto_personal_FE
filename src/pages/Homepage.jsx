@@ -4,6 +4,7 @@ import Works from "../components/Works";
 import Courses from "../components/Courses";
 import Contact from "../components/Contact";
 import Testimonials from "../components/Testimonials";
+import Header from "../components/Header";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -21,6 +22,7 @@ function HomePage() {
 
     return (
         <>
+            <Header />
             <section id="home" className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
                 <Home />
             </section>

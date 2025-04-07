@@ -1,4 +1,6 @@
 import WorksCards from "../components/WorksCards";
+import Header from "../components/Header";
+
 
 function WorksPage() {
   /* const [allWorks, setAllWorks] = useState([]);
@@ -67,6 +69,7 @@ function WorksPage() {
   ];
   return (
     <>
+      <Header />
       <section className="py-20 bg-gradient-to-b from-purple-400 to-purple-600">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">

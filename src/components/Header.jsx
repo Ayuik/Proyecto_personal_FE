@@ -59,12 +59,13 @@ function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <button
+          <Link
+          to="/userpage"
             aria-label="Usuario"
             className="p-1 hover:bg-gray-800 rounded-full"
           >
             <User className="h-5 w-5" />
-          </button>
+          </Link>
           <div className="relative">
             <button
               aria-label="Carrito"
