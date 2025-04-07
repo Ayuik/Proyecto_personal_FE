@@ -6,7 +6,7 @@ function Works() {
       work_tittle: "Proyecto 1",
       work_link:"",
       work_description: "Descripción del proyecto 1",
-      work_tags: [
+      work_tag_id: [
         { id_tag: 1, tag_name: "Tag 1" },
         { id_tag: 2, tag_name: "Tag 2" },
       ],
@@ -16,7 +16,7 @@ function Works() {
       work_tittle: "Proyecto 2",
       work_link:"",
       work_description: "Descripción del proyecto 2",
-      work_tags: [
+      work_tag_id: [
         { id_tag: 3, tag_name: "Tag 3" },
         { id_tag: 4, tag_name: "Tag 4" },
       ],
@@ -26,7 +26,7 @@ function Works() {
         work_tittle: "Proyecto 2",
         work_link:"",
         work_description: "Descripción del proyecto 2",
-        work_tags: [
+        work_tag_id: [
           { id_tag: 3, tag_name: "Tag 3" },
           { id_tag: 4, tag_name: "Tag 4" },
         ],
@@ -36,7 +36,7 @@ function Works() {
         work_tittle: "Proyecto 2",
         work_link:"",
         work_description: "Descripción del proyecto 2",
-        work_tags: [
+        work_tag_id: [
           { id_tag: 3, tag_name: "Tag 3" },
           { id_tag: 4, tag_name: "Tag 4" },
         ],
@@ -46,7 +46,7 @@ function Works() {
         work_tittle: "Proyecto 2",
         work_link:"",
         work_description: "Descripción del proyecto 2",
-        work_tags: [
+        work_tag_id: [
           { id_tag: 3, tag_name: "Tag 3" },
           { id_tag: 4, tag_name: "Tag 4" },
         ],
@@ -73,7 +73,7 @@ function Works() {
                 Ver proyecto
               </a>
               <div className="flex flex-wrap gap-2 mt-2">
-                {work.work_tags.map((tag) => (
+                {work.work_tag_id.map((tag) => (
                   <span
                     key={tag.id_tag}
                     className="px-3 py-1 bg-purple-500 text-sm rounded-full"
