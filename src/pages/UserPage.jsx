@@ -3,6 +3,7 @@ import { ArrowLeft, Play } from "lucide-react";
 import CourseCard from "../components/CourseCard";
 import UserAdminHeader from "../components/UserAdminHeader";
 import { Link } from "react-router-dom";
+import CourseVideosPage from "./CourseVideosPage";
 
 function UserPage() {
   const purchasedCourses = [
@@ -38,18 +39,19 @@ function UserPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {purchasedCourses.map((course) => (
               <div
-                key={course.id}
+                key={course.id_course}
                 className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
               >
                 <CourseCard course={course} />
                 <div className="flex justify-between items-center pl-4 pb-2">
-                  <button
-                    onClick={() => setSelectedCourse(course.id)}
+                  <Link
+                    to="/coursevideospage"
+                    state={{ course }}
                     className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-gray-800 transition-colors text-sm flex items-center"
                   >
                     <Play className="h-4 w-4 mr-2" />
                     Ver videos
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

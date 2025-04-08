@@ -24,4 +24,4 @@ function UserAdminHeader() {
   );
 }
 
-export default UserAdminHeader;
+export default UserAdminHeader
