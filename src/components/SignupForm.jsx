@@ -1,22 +1,22 @@
 import React from "react";
 
-function SigninForm() {
+function SignupForm() {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Inicia sesión para ingresar a tu perfil o realizar una compra
+          Regístrate
         </h2>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="GET" className="space-y-6">
+        <form action="#" method="POST" className="space-y-6">
           <div>
             <label
               htmlFor="username"
               className="block text-sm/6 font-medium text-gray-900"
             >
-              Nombre de usuario
+              Crear username
             </label>
             <div className="mt-2">
               <input
@@ -36,7 +36,7 @@ function SigninForm() {
                 htmlFor="password"
                 className="block text-sm/6 font-medium text-gray-900"
               >
-                Contraseña
+                Crear contraseña
               </label>
             </div>
             <div className="mt-2">
@@ -56,23 +56,13 @@ function SigninForm() {
               type="submit"
               className="flex w-full justify-center rounded-md bg-purple-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Iniciar sesión
+              Crear usuario
             </button>
           </div>
         </form>
-
-        <p className="mt-10 text-center text-sm/6 text-gray-500">
-          ¿Usuario nuevo?{" "}
-          <a
-            href="#"
-            className="font-semibold text-purple-600 hover:text-purple-500"
-          >
-            Regístrate
-          </a>
-        </p>
       </div>
     </div>
   );
 }
 
-export default SigninForm;
+export default SignupForm;
