@@ -6,11 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import UserPage from "./pages/UserPage";
 import CourseVideosPage from "./pages/CourseVideosPage";
+import SigninForm from "./components/SigninForm";
 
 function App() {
   return (
     <div className="min-h-screen">
-      <BrowserRouter>
+      <SigninForm />
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/workspage" element={<WorksPage />} />
@@ -18,7 +20,7 @@ function App() {
           <Route path="/coursevideospage" element={<CourseVideosPage /> } />
         </Routes>
       </BrowserRouter>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
