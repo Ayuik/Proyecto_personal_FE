@@ -9,7 +9,7 @@ function Works() {
     useEffect(() => {
       const fetchData = async () => {
         
-          const dat = await getWorks();
+          const data = await getWorks();
           setSomeWorks(data.slice(0, 3));
         
       };

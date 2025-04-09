@@ -1,10 +1,13 @@
 import { ShoppingCart, User, Menu } from "lucide-react";
 import { useState } from "react";
 import {Link} from "react-router-dom";
+import { useAuth } from "./AuthContext";
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLogged } = useAuth();
 
-  return (
+    return (
     <header className="sticky top-0 z-10 bg-black text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
         <Link to="/#home" className="text-xl font-bold">
@@ -59,12 +62,13 @@ function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <button
+          <Link
+          to={isLogged ? "/userpage" : "/signinpage"}
             aria-label="Usuario"
             className="p-1 hover:bg-gray-800 rounded-full"
           >
             <User className="h-5 w-5" />
-          </button>
+          </Link>
           <div className="relative">
             <button
               aria-label="Carrito"
