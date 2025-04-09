@@ -7,20 +7,25 @@ import Footer from "./components/Footer";
 import UserPage from "./pages/UserPage";
 import CourseVideosPage from "./pages/CourseVideosPage";
 import SigninForm from "./components/SigninForm";
+import SignupForm from "./components/SignupForm";
+import { AuthProvider } from "../src/components/AuthContext";
 
 function App() {
   return (
     <div className="min-h-screen">
-      <SigninForm />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/workspage" element={<WorksPage />} />
-          <Route path="/userpage" element={<UserPage />} />
-          <Route path="/coursevideospage" element={<CourseVideosPage /> } />
-        </Routes>
-      </BrowserRouter>
-      <Footer /> */}
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/workspage" element={<WorksPage />} />
+            <Route path="/userpage" element={<UserPage />} />
+            <Route path="/coursevideospage" element={<CourseVideosPage />} />
+            <Route path="/signinpage" element={<SigninForm />} />
+            <Route path="/signuppage" element={<SignupForm />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </AuthProvider>
     </div>
   );
 }

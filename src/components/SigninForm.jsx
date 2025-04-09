@@ -1,6 +1,17 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 function SigninForm() {
+  const navigate = useNavigate();
+  const { setIsLogged } = useAuth();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLogged(true);
+    navigate("/#home");
+  };
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -10,7 +21,7 @@ function SigninForm() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="GET" className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
               htmlFor="username"
@@ -63,12 +74,12 @@ function SigninForm() {
 
         <p className="mt-10 text-center text-sm/6 text-gray-500">
           ¿Usuario nuevo?{" "}
-          <a
-            href="#"
+          <Link
+            to="/signuppage"
             className="font-semibold text-purple-600 hover:text-purple-500"
           >
             Regístrate
-          </a>
+          </Link>
         </p>
       </div>
     </div>

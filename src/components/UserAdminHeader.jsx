@@ -1,10 +1,18 @@
 import { LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function UserAdminHeader() {
-  const handleLogout = () => {
+  const navigate = useNavigate();
+  const { setIsLogged } = useAuth(); // Usamos el contexto para cambiar el estado global
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setIsLogged(false); // Cambiar el estado global
+    navigate("/#home");
     alert("Sesión cerrada");
-    window.location.href = "/";
+    // Redirigir a la página Home
   };
   return (
     <header className="sticky top-0 z-10 bg-black text-white shadow-md">
@@ -24,4 +32,4 @@ function UserAdminHeader() {
   );
 }
 
-export default UserAdminHeader
+export default UserAdminHeader;
