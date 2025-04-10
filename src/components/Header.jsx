@@ -63,7 +63,7 @@ function Header() {
 
         <div className="flex items-center space-x-4">
           <Link
-          to={isLogged ? "/userpage" : "/signinpage"}
+          to={isLogged ? "/userpage" : "/signinuserpage"}
             aria-label="Usuario"
             className="p-1 hover:bg-gray-800 rounded-full"
           >

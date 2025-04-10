@@ -6,8 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import UserPage from "./pages/UserPage";
 import CourseVideosPage from "./pages/CourseVideosPage";
-import SigninForm from "./components/SigninForm";
-import SignupForm from "./components/SignupForm";
+import SigninUserPage from "./pages/SigninUserPage";
+import SignupUserPage from "./pages/SignupUserPage";
+import SignupAdminPage from "./pages/SignupAdminPage";
+import SigninAdminPage from "./pages/SigninAdminPage";
+import AdminPage from "./pages/AdminPage";
 import { AuthProvider } from "../src/components/AuthContext";
 
 function App() {
@@ -20,11 +23,14 @@ function App() {
             <Route path="/workspage" element={<WorksPage />} />
             <Route path="/userpage" element={<UserPage />} />
             <Route path="/coursevideospage" element={<CourseVideosPage />} />
-            <Route path="/signinpage" element={<SigninForm />} />
-            <Route path="/signuppage" element={<SignupForm />} />
+            <Route path="/signinuserpage" element={<SigninUserPage />} />
+            <Route path="/signinadminpage" element={<SigninAdminPage />} />
+            <Route path="/signupadminpage" element={<SignupAdminPage />} />
+            <Route path="/signupuserpage" element={<SignupUserPage />} />
+            <Route path="/adminhome" element={<AdminPage />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </AuthProvider>
     </div>
   );
