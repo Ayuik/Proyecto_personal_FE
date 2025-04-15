@@ -16,25 +16,25 @@ function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.map((course) => (
-          <div key={course.id_course} className="bg-white border rounded-lg overflow-hidden shadow-sm">
+          <div key={course.courseId} className="bg-white border rounded-lg overflow-hidden shadow-sm">
             <div className="relative h-40 bg-gray-200">
               <img
-                src={course.course_cover || "/placeholder.svg"}
-                alt={course.course_title}
+                src={course.courseCover || "/placeholder.svg"}
+                alt={course.courseTitle}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">{course.course_title}</h3>
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2">{course.course_description}</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">{course.courseTitle}</h3>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-2">{course.courseDescription}</p>
 
               <div className="flex justify-between items-center text-sm text-gray-500 mb-3">
-                <span>{course.course_price.toFixed(2)}€</span>
-                <span>{course.course_duration}</span>
+                <span>{course.coursePrice.toFixed(2)}€</span>
+                <span>{course.courseDuration}</span>
               </div>
 
               <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-                <span>{course.course_num_videos} videos</span>
+                <span>{course.courseNumVideos} videos</span>
               </div>
 
               <div className="flex justify-between">
@@ -50,7 +50,7 @@ function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
                   <button onClick={() => onEdit(course)} className="p-1 text-blue-600 hover:text-blue-800">
                     <Pencil className="h-5 w-5" />
                   </button>
-                  <button onClick={() => onDelete(course.id_course)} className="p-1 text-red-600 hover:text-red-800">
+                  <button onClick={() => onDelete(course.courseId)} className="p-1 text-red-600 hover:text-red-800">
                     <Trash2 className="h-5 w-5" />
                   </button>
                 </div>

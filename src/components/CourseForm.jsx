@@ -1,47 +1,60 @@
 import { useState } from "react"
 import { Save, X } from "lucide-react"
 
-function CourseEditForm({ course, onSave, onCancel }) {
+function CourseForm({ course, onSave, onCancel }) {
   const [formData, setFormData] = useState({
-    id_course: course.id_course || null,
-    course_title: course.course_title || "",
-    course_description: course.course_description || "",
-    course_cover: course.course_cover || "/placeholder.svg?height=200&width=300",
-    course_price: course.course_price || 0,
-    course_duration: course.course_duration || "",
-    course_num_videos: course.course_num_videos || 0,
+    courseId: course.courseId || "",
+    courseTitle: course.courseTitle || "",
+    courseCategory: course.courseCategory || { categoryId: "", categoryName: "" },
+    courseDescription: course.courseDescription || "",
+    courseCover: course.courseCover || "/placeholder.svg?height=200&width=300",
+    coursePrice: course.coursePrice || 0,
+    videos: course.videos || [],
+  })
+
+  const [newData, setNewData] = useState({
+    courseTitle: course.courseTitle || "",
+    courseDescription: course.courseDescription || "",
+    courseCover: course.courseCover || "/placeholder.svg?height=200&width=300",
+    coursePrice: course.coursePrice || 0,
+    videos: course.videos || [],
+    courseCategory: course.courseCategory || { categoryId: "1" },
   })
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
-      [name]: name === "course_price" ? Number.parseFloat(value) : value,
+      [name]: name === "coursePrice" ? Number.parseFloat(value) : value,
+    })
+    setNewData({
+      ...newData,
+      [name]: name === "coursePrice" ? Number.parseFloat(value) : value,
     })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSave(formData)
+    onSave(course.courseId ? formData : newData)
   }
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">{course.id_course ? "Editar Curso" : "Nuevo Curso"}</h2>
+        <h2 className="text-2xl font-bold text-gray-800">{course.courseId ? "Editar Curso" : "Nuevo Curso"}</h2>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-6 mb-6">
           <div>
-            <label htmlFor="course_title" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="courseTitle" className="block text-sm font-medium text-gray-700 mb-1">
               Título
             </label>
             <input
               type="text"
-              id="course_title"
-              name="course_title"
-              value={formData.course_title}
+              id="courseTitle"
+              name="courseTitle"
+              value={formData.courseTitle || newData.courseTitle}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -49,13 +62,13 @@ function CourseEditForm({ course, onSave, onCancel }) {
           </div>
 
           <div>
-            <label htmlFor="course_description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="courseDescription" className="block text-sm font-medium text-gray-700 mb-1">
               Descripción
             </label>
             <textarea
-              id="course_description"
-              name="course_description"
-              value={formData.course_description}
+              id="courseDescription"
+              name="courseDescription"
+              value={formData.courseDescription || newData.courseDescription}
               onChange={handleChange}
               rows={4}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -63,21 +76,21 @@ function CourseEditForm({ course, onSave, onCancel }) {
           </div>
 
           <div>
-            <label htmlFor="course_cover" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="courseCover" className="block text-sm font-medium text-gray-700 mb-1">
               URL de la imagen de portada
             </label>
             <input
               type="text"
-              id="course_cover"
-              name="course_cover"
-              value={formData.course_cover}
+              id="courseCover"
+              name="courseCover"
+              value={formData.courseCover || newData.courseCover}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
-            {formData.course_cover && (
+            {formData.courseCover && (
               <div className="mt-2 h-40 bg-gray-100 rounded">
                 <img
-                  src={formData.course_cover || "/placeholder.svg"}
+                  src={formData.courseCover || newData.courseCover || "/placeholder.svg"}
                   alt="Vista previa"
                   className="h-full w-auto object-contain mx-auto"
                 />
@@ -87,14 +100,14 @@ function CourseEditForm({ course, onSave, onCancel }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="course_price" className="block text-sm font-medium text-gray-700 mb-1">
-                Precio ($)
+              <label htmlFor="coursePrice" className="block text-sm font-medium text-gray-700 mb-1">
+                Precio ( €)
               </label>
               <input
                 type="number"
-                id="course_price"
-                name="course_price"
-                value={formData.course_price}
+                id="coursePrice"
+                name="coursePrice"
+                value={formData.coursePrice || newData.coursePrice}
                 onChange={handleChange}
                 min="0"
                 step="0.01"
@@ -127,4 +140,4 @@ function CourseEditForm({ course, onSave, onCancel }) {
   )
 }
 
-export default CourseEditForm
+export default CourseForm
