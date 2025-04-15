@@ -8,12 +8,12 @@ import CourseVideosPage from "./CourseVideosPage";
 function UserPage() {
   const purchasedCourses = [
     {
-      id_course: 1,
-      course_title: "Fundamentos de producción musical",
-      course_duration: "60mins",
-      course_description: "Descripción del curso 1",
-      course_videos: 32,
-      course_category_id: "Producción",
+      courseId: 1,
+      courseTitle: "Fundamentos de producción musical",
+      courseDuration: "60mins",
+      courseDescription: "Descripción del curso 1",
+      courseVideos: 32,
+      courseCategory: {categoryName: "Produccion musical" },
       course_price: 99.99,
       course_cover:
         "https://cdn.pixabay.com/photo/2014/01/31/21/39/recording-255869_1280.jpg",
@@ -39,7 +39,7 @@ function UserPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {purchasedCourses.map((course) => (
               <div
-                key={course.id_course}
+                key={course.courseId}
                 className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
               >
                 <CourseCard course={course} />

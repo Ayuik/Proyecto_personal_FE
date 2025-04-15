@@ -10,7 +10,7 @@ function CourseCard({ course }) {
       </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="font-bold text-lg">{course.course_title}</h3>
+          <h3 className="font-bold text-lg">{course.courseTitle}</h3>
           <span className="bg-purple-600 text-white px-3 py-1 text-sm rounded-full">
             {course.courseCategory.categoryName}
           </span>
@@ -51,7 +51,7 @@ function CourseCard({ course }) {
                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span>{course.courseDuration}</span>
+            <span>{course.courseDuration} min</span>
           </div>
         </div>
       </div>
