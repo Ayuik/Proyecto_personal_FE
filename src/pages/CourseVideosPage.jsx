@@ -46,7 +46,7 @@ function CourseVideosPage() {
           Volver a mis cursos
         </Link>
         <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-2">{course.title}</h3>
+          <h3 className="text-2xl font-bold mb-2">{course.courseTitle}</h3>
           <div className="flex items-center space-x-4"></div>
         </div>
 
@@ -55,11 +55,11 @@ function CourseVideosPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {courseVideos.map((video, index) => (
               <div
-                key={video.id_video}
+                key={video.videoId}
                 className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="aspect-video bg-gray-200 relative">
-                  <VideoFrame videoLink={video.video_url} />
+                  <VideoFrame videoLink={video.videoUrl} />
                 </div>
                 <div className="p-3">
                   <div className="flex items-center">
@@ -68,10 +68,10 @@ function CourseVideosPage() {
                     </div>
                     <div>
                       <h5 className="font-medium text-sm">
-                        {video.video_title}
+                        {video.videoTitle}
                       </h5>
                       <p className="text-xs text-gray-500">
-                        {video.video_description}
+                        {video.videoDescription}
                       </p>
                     </div>
                   </div>

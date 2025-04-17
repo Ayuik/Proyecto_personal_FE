@@ -14,7 +14,7 @@ function AdminPage() {
   const [editingVideo, setEditingVideo] = useState(null);
 
   const [courses, setCourses] = useState([]);
-
+ 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCourses();
@@ -189,9 +189,6 @@ function AdminPage() {
           {activeView === "courseVideos" && selectedCourse && (
             <CourseVideos
               course={selectedCourse}
-              videos={videos.filter(
-                (video) => video.video_course_id === selectedCourse.id_course
-              )}
               onBack={() => {
                 setActiveView("courses");
                 setSelectedCourse(null);

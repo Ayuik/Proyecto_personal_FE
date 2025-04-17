@@ -3,11 +3,11 @@ import { Save, X } from "lucide-react"
 
 function VideoEdit({ video, onSave, onCancel }) {
   const [formData, setFormData] = useState({
-    id_video: video.id_video || null,
-    video_url: video.video_url || "",
-    video_course_id: video.video_course_id,
-    video_description: video.video_description || "",
-    video_duration: video.video_duration || "",
+    videoId: video.videoId || null,
+    videoUrl: video.videUrl || "",
+    videoCourseId: video.videCourseId,
+    videoDescription: video.videoDescription || "",
+    videoDuration: video.videoDuration || "",
   })
 
   const handleChange = (e) => {
@@ -26,7 +26,7 @@ function VideoEdit({ video, onSave, onCancel }) {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">{video.id_video ? "Editar Video" : "Nuevo Video"}</h2>
+        <h2 className="text-2xl font-bold text-gray-800">{video.videoId ? "Editar Video" : "Nuevo Video"}</h2>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ function VideoEdit({ video, onSave, onCancel }) {
               type="text"
               id="video_url"
               name="video_url"
-              value={formData.video_url}
+              value={formData.videoUrl}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -53,7 +53,7 @@ function VideoEdit({ video, onSave, onCancel }) {
             <textarea
               id="video_description"
               name="video_description"
-              value={formData.video_description}
+              value={formData.videoDescription}
               onChange={handleChange}
               rows={4}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -68,7 +68,7 @@ function VideoEdit({ video, onSave, onCancel }) {
               type="text"
               id="video_duration"
               name="video_duration"
-              value={formData.video_duration}
+              value={formData.videoDuration}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"

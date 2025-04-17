@@ -1,13 +1,15 @@
-import { ArrowLeft, Plus, Pencil, Trash2, Play } from "lucide-react"
+import { ArrowLeft, Plus, Pencil, Trash2, Play } from "lucide-react";
 
-function CourseVideos({ course, videos, onBack, onAddVideo, onEditVideo, onDeleteVideo }) {
+function CourseVideos({ course, onBack, onAddVideo, onEditVideo, onDeleteVideo }) {
+  const videos = course.videos || [];
+  
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center mb-6">
         <button onClick={onBack} className="mr-4 p-1 rounded-full hover:bg-gray-100">
           <ArrowLeft className="h-5 w-5" />
         </button>
-        <h2 className="text-2xl font-bold text-gray-800">Videos de {course.course_title}</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Videos de {course.courseTitle}</h2>
         <button
           onClick={onAddVideo}
           className="ml-auto flex items-center bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
@@ -35,26 +37,26 @@ function CourseVideos({ course, videos, onBack, onAddVideo, onEditVideo, onDelet
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {videos.map((video) => (
-              <tr key={video.id_video}>
+              <tr key={video.videoId}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-16 bg-gray-200 rounded flex items-center justify-center">
                       <Play className="h-5 w-5 text-gray-500" />
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900 truncate max-w-xs">{video.video_url}</div>
+                      <div className="text-sm font-medium text-gray-900 truncate max-w-xs">{video.videoUrl}</div>
                     </div>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="text-sm text-gray-900">{video.video_description}</div>
+                  <div className="text-sm text-gray-900">{video.videoDescription}</div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{video.video_duration}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{video.videoDuration}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button onClick={() => onEditVideo(video)} className="text-blue-600 hover:text-blue-900 mr-4">
                     <Pencil className="h-5 w-5" />
                   </button>
-                  <button onClick={() => onDeleteVideo(video.id_video)} className="text-red-600 hover:text-red-900">
+                  <button onClick={() => onDeleteVideo(video.videoId)} className="text-red-600 hover:text-red-900">
                     <Trash2 className="h-5 w-5" />
                   </button>
                 </td>
@@ -70,7 +72,7 @@ function CourseVideos({ course, videos, onBack, onAddVideo, onEditVideo, onDelet
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default CourseVideos
+export default CourseVideos;

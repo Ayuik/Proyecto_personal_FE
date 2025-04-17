@@ -1,6 +1,7 @@
-import { Pencil, Trash2, Plus, Video } from "lucide-react"
+import { Pencil, Trash2, Plus, Video } from "lucide-react";
+import CourseCard from "./CourseCard";
 
-function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
+function CoursesOnSale({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-6">
@@ -16,28 +17,17 @@ function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.map((course) => (
-          <div key={course.courseId} className="bg-white border rounded-lg overflow-hidden shadow-sm">
-            <div className="relative h-40 bg-gray-200">
-              <img
-                src={course.courseCover || "/placeholder.svg"}
-                alt={course.courseTitle}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">{course.courseTitle}</h3>
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2">{course.courseDescription}</p>
+          <div
+            key={course.courseId}
+            className="bg-white border rounded-lg overflow-hidden shadow-sm"
+          >
+            <CourseCard course={course} />
 
-              <div className="flex justify-between items-center text-sm text-gray-500 mb-3">
-                <span>{course.coursePrice.toFixed(2)}€</span>
-                <span>{course.courseDuration}</span>
-              </div>
-
-              <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-                <span>{course.courseNumVideos} videos</span>
-              </div>
-
-              <div className="flex justify-between">
+            <div className="pl-6 pr-6 pb-6">
+              <div className="flex justify-between items-center">
+                <span className="text-xl font-bold">
+                  {course.coursePrice.toFixed(2)}€
+                </span>
                 <button
                   onClick={() => onViewVideos(course)}
                   className="flex items-center text-sm text-blue-600 hover:text-blue-800"
@@ -45,12 +35,17 @@ function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
                   <Video className="h-4 w-4 mr-1" />
                   Ver Videos
                 </button>
-
                 <div className="flex space-x-2">
-                  <button onClick={() => onEdit(course)} className="p-1 text-blue-600 hover:text-blue-800">
+                  <button
+                    onClick={() => onEdit(course)}
+                    className="p-1 text-blue-600 hover:text-blue-800"
+                  >
                     <Pencil className="h-5 w-5" />
                   </button>
-                  <button onClick={() => onDelete(course.courseId)} className="p-1 text-red-600 hover:text-red-800">
+                  <button
+                    onClick={() => onDelete(course.courseId)}
+                    className="p-1 text-red-600 hover:text-red-800"
+                  >
                     <Trash2 className="h-5 w-5" />
                   </button>
                 </div>
@@ -62,11 +57,12 @@ function CoursesList({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
 
       {courses.length === 0 && (
         <div className="text-center py-8 text-gray-500">
-          No hay cursos disponibles. Haga clic en "Nuevo Curso" para agregar uno.
+          No hay cursos disponibles. Haga clic en "Nuevo Curso" para agregar
+          uno.
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default CoursesList
+export default CoursesOnSale;
