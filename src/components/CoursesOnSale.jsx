@@ -22,7 +22,6 @@ function CoursesOnSale({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
             className="bg-white border rounded-lg overflow-hidden shadow-sm"
           >
             <CourseCard course={course} />
-
             <div className="pl-6 pr-6 pb-6">
               <div className="flex justify-between items-center">
                 <span className="text-xl font-bold">
@@ -57,8 +56,7 @@ function CoursesOnSale({ courses, onDelete, onEdit, onViewVideos, onAddNew }) {
 
       {courses.length === 0 && (
         <div className="text-center py-8 text-gray-500">
-          No hay cursos disponibles. Haga clic en "Nuevo Curso" para agregar
-          uno.
+          No hay cursos disponibles. Haga clic en "Nuevo Curso" para agregar uno.
         </div>
       )}
     </div>

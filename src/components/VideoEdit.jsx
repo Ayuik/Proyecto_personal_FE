@@ -1,45 +1,50 @@
-import { useState } from "react"
-import { Save, X } from "lucide-react"
+import { useState } from "react";
+import { Save, X } from "lucide-react";
 
-function VideoEdit({ video, onSave, onCancel }) {
-  const [formData, setFormData] = useState({
-    videoId: video.videoId || null,
-    videoUrl: video.videUrl || "",
-    videoCourseId: video.videCourseId,
-    videoDescription: video.videoDescription || "",
-    videoDuration: video.videoDuration || "",
-  })
+function VideoEdit({ video, onCancel, onSave }) {
+  const [videoData, setVideoData] = useState({
+    videoId: video && video.videoId ? video.videoId : null,
+    videoTitle: video && video.videoTitle ? video.videoTitle : "",
+    videoUrl: video && video.videoUrl ? video.videoUrl : "",
+    videoDescription: video && video.videoDescription ? video.videoDescription : "",
+    videoDuration: video && video.videoDuration ? video.videoDuration : "",
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-  }
+    const { name, value } = e.target;
+    setVideoData({ ...videoData, [name]: value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    onSave(formData)
-  }
+    e.preventDefault();
+    // Si videoId es null, eliminamos la propiedad para la creación
+    const payload = { ...videoData };
+    if (payload.videoId === null) {
+      delete payload.videoId;
+    }
+    console.log("Se envía payload:", payload);
+    onSave(payload);
+  };
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">{video.videoId ? "Editar Video" : "Nuevo Video"}</h2>
+        <h2 className="text-2xl font-bold text-gray-800">
+          {videoData.videoId ? "Editar Video" : "Nuevo Video"}
+        </h2>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-6 mb-6">
           <div>
-            <label htmlFor="video_url" className="block text-sm font-medium text-gray-700 mb-1">
-              URL del Video
+            <label htmlFor="videoTitle" className="block text-sm font-medium text-gray-700 mb-1">
+              Título del Video
             </label>
             <input
               type="text"
-              id="video_url"
-              name="video_url"
-              value={formData.videoUrl}
+              id="videoTitle"
+              name="videoTitle"
+              value={videoData.videoTitle}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -47,13 +52,28 @@ function VideoEdit({ video, onSave, onCancel }) {
           </div>
 
           <div>
-            <label htmlFor="video_description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="videoUrl" className="block text-sm font-medium text-gray-700 mb-1">
+              URL del Video
+            </label>
+            <input
+              type="text"
+              id="videoUrl"
+              name="videoUrl"
+              value={videoData.videoUrl}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="videoDescription" className="block text-sm font-medium text-gray-700 mb-1">
               Descripción
             </label>
             <textarea
-              id="video_description"
-              name="video_description"
-              value={formData.videoDescription}
+              id="videoDescription"
+              name="videoDescription"
+              value={videoData.videoDescription}
               onChange={handleChange}
               rows={4}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -61,14 +81,14 @@ function VideoEdit({ video, onSave, onCancel }) {
           </div>
 
           <div>
-            <label htmlFor="video_duration" className="block text-sm font-medium text-gray-700 mb-1">
-              Duración (ej. 15:30)
+            <label htmlFor="videoDuration" className="block text-sm font-medium text-gray-700 mb-1">
+              Duración (minutos)
             </label>
             <input
               type="text"
-              id="video_duration"
-              name="video_duration"
-              value={formData.videoDuration}
+              id="videoDuration"
+              name="videoDuration"
+              value={videoData.videoDuration}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -95,7 +115,7 @@ function VideoEdit({ video, onSave, onCancel }) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default VideoEdit
+export default VideoEdit;

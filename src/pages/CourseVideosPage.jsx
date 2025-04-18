@@ -1,7 +1,6 @@
 import { Link } from "lucide-react";
 import UserAdminHeader from "../components/UserAdminHeader";
 import { useLocation } from "react-router-dom";
-import { filterVideosByCourseId } from "../services/videosapi";
 import VideoFrame from "../components/VideoFrame";
 import { useState, useEffect } from "react";
 

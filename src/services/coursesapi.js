@@ -75,3 +75,42 @@ export async function postCourse(newCourse) {
     throw error;
   }
 }
+
+export async function deleteVideoFromCourse(courseId, videoId){
+  try {
+    const response = await fetch(`${endpoint.courses}/${courseId}/video/${videoId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Error deleting video: ${response.status}`);
+    } else {
+      return true;
+    }
+  } catch (error) {
+    console.error(error.message);
+    return false;
+  }
+}
+
+export async function addVideoToCourse(courseId, newVideo){
+  try {
+    const response = await fetch(`${endpoint.courses}/${courseId}/video`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newVideo),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error creating video: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error al crear el video:", error.message);
+    throw error;
+  }
+}
