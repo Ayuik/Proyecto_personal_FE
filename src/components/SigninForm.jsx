@@ -3,7 +3,7 @@ import { useState } from "react";
 import { login } from "../services/loginapi";
 import { useAuth } from "./AuthContext";
 
-function SigninForm({ navigate }) {
+function SigninForm({ navigate, redirectTo }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const { setIsLogged } = useAuth();
 
@@ -19,7 +19,7 @@ function SigninForm({ navigate }) {
       localStorage.setItem("token", token);
       setIsLogged(true);
       console.log("exito");
-      navigate();
+      navigate(redirectTo);
     } catch (err) {
       console.log(err.message);
     }
