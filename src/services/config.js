@@ -4,5 +4,6 @@ export const endpoint = {
     testimonials: `${API_URL}/testominials`,
     works: `${API_URL}/works`,
     videos: `${API_URL}/videos`,
-    categories: `${API_URL}/categories`
+    categories: `${API_URL}/categories`,
+    login: `${API_URL}/login`
 }
