@@ -15,7 +15,7 @@ function SigninForm({ navigate, redirectTo }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { token } = await login(formData.username, formData.password);
+      const { token } = await login(formData.username, btoa(formData.password));
       localStorage.setItem("token", token);
       setIsLogged(true);
       console.log("exito");
