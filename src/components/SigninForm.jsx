@@ -5,8 +5,8 @@ import { useAuth } from "./AuthContext";
 
 function SigninForm({ navigate, redirectTo }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const { setIsLogged } = useAuth();
-
+  const { updateToken } = useAuth();
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -15,11 +15,10 @@ function SigninForm({ navigate, redirectTo }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { token } = await login(formData.username, btoa(formData.password));
-      localStorage.setItem("token", token);
-      setIsLogged(true);
-      console.log("exito");
-      navigate(redirectTo);
+      const { token } = await login(formData.username, formData.password);
+    updateToken(token);  
+    console.log("éxito");
+    navigate(redirectTo);
     } catch (err) {
       console.log(err.message);
     }

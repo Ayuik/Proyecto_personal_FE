@@ -1,4 +1,4 @@
-import { endpoint } from "./config";
+import { endpoint, buildHeader } from "./config";
 
 export async function getCourses() {
   try {
@@ -13,13 +13,11 @@ export async function getCourses() {
   }
 }
 
-export async function deleteCourse(courseId) {
+export async function deleteCourse(courseId, token) {
   try {
     const response = await fetch(`${endpoint.courses}/${courseId}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: buildHeader(token),
     });
     if (!response.ok) {
       throw new Error(`Error deleting course: ${response.status}`);
@@ -32,16 +30,14 @@ export async function deleteCourse(courseId) {
   }
 }
 
-export async function updateCourse(updatedCourse) {
+export async function updateCourse(updatedCourse, token) {
   console.log("ID del curso a actualizar:", updatedCourse.courseId);
   try {
     const response = await fetch(
       `${endpoint.courses}/${updatedCourse.courseId}`,
       {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: buildHeader(token),
         body: JSON.stringify(updatedCourse),
       }
     );
@@ -56,13 +52,11 @@ export async function updateCourse(updatedCourse) {
   }
 }
 
-export async function postCourse(newCourse) {
+export async function postCourse(newCourse, token) {
   try {
     const response = await fetch(`${endpoint.courses}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: buildHeader(token),
       body: JSON.stringify(newCourse),
     });
 

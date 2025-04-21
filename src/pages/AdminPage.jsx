@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import CoursesOnSale from "../components/CoursesOnSale";
 import CourseForm from "../components/CourseForm";
 import CourseVideos from "../components/CourseVideos";
+import { useAuth } from "../components/AuthContext";
 
 function AdminPage() {
   const [activeView, setActiveView] = useState("courses");
@@ -11,6 +12,7 @@ function AdminPage() {
   const [addingCourse, setAddingCourse] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [courses, setCourses] = useState([]);
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +24,7 @@ function AdminPage() {
 
   const handleDeleteCourse = async (courseId) => {
     try {
-      const result = await deleteCourse(courseId);
+      const result = await deleteCourse(courseId, token);
       if (result) {
         const data = await getCourses();
         setCourses(data);
@@ -44,7 +46,7 @@ function AdminPage() {
 
   const handleUpdateCourse = async (updatedCourse) => {
     try {
-      const result = await updateCourse(updatedCourse);
+      const result = await updateCourse(updatedCourse, token);
       if (result) {
         const data = await getCourses();
         setCourses(data);
@@ -70,7 +72,7 @@ function AdminPage() {
 
   const handlePostCourse = async (newCourse) => {
     try {
-      const result = await postCourse(newCourse);
+      const result = await postCourse(newCourse, token);
       if (result) {
         const data = await getCourses();
         setCourses(data);
