@@ -49,7 +49,7 @@ function CourseVideos({ course, onBack }) {
       }
     } else {
       try {
-        const result = await addVideoToCourse(course.courseId, videoData);
+        const result = await addVideoToCourse(course.courseId, videoData, token);
         // Se asume que el backend retorna el video con su id asignado.
         setVideos((prev) => [...prev, result]);
       } catch (error) {

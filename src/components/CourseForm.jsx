@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Save, X } from "lucide-react";
 import { getCategories, postCategory } from "../services/categoriesapi";
+import { useAuth } from "./AuthContext";
 
 export default function CourseForm({ course, onSave, onCancel }) {
   const [editedData, setEditedData] = useState({
@@ -25,6 +26,8 @@ export default function CourseForm({ course, onSave, onCancel }) {
   const [categories, setCategories] = useState([]);
   const [isNewCategory, setIsNewCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
+
+  const {token} = useAuth();
 
   useEffect(() => {
     (async () => {
@@ -102,7 +105,7 @@ export default function CourseForm({ course, onSave, onCancel }) {
       dataToSave.courseCategory.categoryId === "new"
     ) {
       const newCatPayload = { categoryName: newCategoryName };
-      const newCategoryResponse = await postCategory(newCatPayload);
+      const newCategoryResponse = await postCategory(newCatPayload, token);
       dataToSave = {
         ...dataToSave,
         courseCategory: newCategoryResponse,

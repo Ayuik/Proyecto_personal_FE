@@ -1,4 +1,4 @@
-import { endpoint } from "./config";
+import { buildHeader, endpoint } from "./config";
 
 export async function getCategories() {
   try {
@@ -13,13 +13,11 @@ export async function getCategories() {
   }
 }
 
-export async function postCategory(newCategoryName) {
+export async function postCategory(newCategoryName, token) {
   try {
     const response = await fetch(`${endpoint.categories}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: buildHeader(token),
       body: JSON.stringify(newCategoryName),
     });
 
