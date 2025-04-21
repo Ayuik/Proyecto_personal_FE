@@ -1,15 +1,13 @@
-import { endpoint } from "./config";
+import { endpoint, buildHeader } from "./config";
 
-export async function updateVideo(updatedVideo){
+export async function updateVideo(updatedVideo, token){
   console.log("ID del video a actualizar:", updatedVideo.videoId);
   try {
     const response = await fetch(
       `${endpoint.videos}/${updatedVideo.videoId}`,
       {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: buildHeader(token),
         body: JSON.stringify(updatedVideo),
       }
     );

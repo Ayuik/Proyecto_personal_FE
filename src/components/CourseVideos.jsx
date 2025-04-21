@@ -3,11 +3,15 @@ import { deleteVideoFromCourse, addVideoToCourse } from "../services/coursesapi"
 import { updateVideo } from "../services/videosapi";
 import { useState, useEffect } from "react";
 import VideoEdit from "./VideoEdit";
+import { useAuth } from "./AuthContext";
+
 
 function CourseVideos({ course, onBack }) {
   const [videos, setVideos] = useState(course.videos || []);
   const [videoMode, setVideoMode] = useState(null); // null, "add" o "edit"
   const [editingVideo, setEditingVideo] = useState(null);
+
+  const {token} = useAuth();
 
   useEffect(() => {
     setVideos(course.videos || []);
@@ -15,7 +19,7 @@ function CourseVideos({ course, onBack }) {
 
   const handleDeleteVideo = async (videoId) => {
     try {
-      const result = await deleteVideoFromCourse(course.courseId, videoId);
+      const result = await deleteVideoFromCourse(course.courseId, videoId, token);
       if (result) {
         setVideos((prev) =>
           prev.filter((video) => video.videoId !== videoId)
@@ -34,7 +38,7 @@ function CourseVideos({ course, onBack }) {
     // Si existe videoId, se hace PUT, de lo contrario POST.
     if (videoData.videoId) {
       try {
-        const result = await updateVideo(videoData);
+        const result = await updateVideo(videoData, token);
         setVideos((prev) =>
           prev.map((video) =>
             video.videoId === videoData.videoId ? videoData : video

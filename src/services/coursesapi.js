@@ -70,13 +70,11 @@ export async function postCourse(newCourse, token) {
   }
 }
 
-export async function deleteVideoFromCourse(courseId, videoId){
+export async function deleteVideoFromCourse(courseId, videoId, token){
   try {
     const response = await fetch(`${endpoint.courses}/${courseId}/video/${videoId}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: buildHeader(token),
     });
     if (!response.ok) {
       throw new Error(`Error deleting video: ${response.status}`);
@@ -89,13 +87,11 @@ export async function deleteVideoFromCourse(courseId, videoId){
   }
 }
 
-export async function addVideoToCourse(courseId, newVideo){
+export async function addVideoToCourse(courseId, newVideo, token){
   try {
     const response = await fetch(`${endpoint.courses}/${courseId}/video`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: buildHeader(token),
       body: JSON.stringify(newVideo),
     });
 
