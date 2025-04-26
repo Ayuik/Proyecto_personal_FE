@@ -1,5 +1,6 @@
 import React from "react";
 import SignupForm from "../components/SignupForm";
+import UserAdminHeader from "../components/UserAdminHeader";
 
 function SignupAdminPage() {
   return (
