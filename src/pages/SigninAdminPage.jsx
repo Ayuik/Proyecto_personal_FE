@@ -1,11 +1,11 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import SigninForm from "../components/SigninForm";
 import UserAdminHeader from "../components/UserAdminHeader";
 
-function SigninAdminPage(){  
-    return (
-        <>
+function SigninAdminPage() {
+  return (
+    <div className="flex flex-col min-h-screen">
       <UserAdminHeader />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -15,7 +15,7 @@ function SigninAdminPage(){
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <SigninForm redirectTo="/adminhome"/>
+          <SigninForm redirectTo="/adminhome" />
           <p className="mt-10 text-center text-sm/6 text-gray-500">
             ¿Administrador nuevo?{" "}
             <Link
@@ -27,8 +27,8 @@ function SigninAdminPage(){
           </p>
         </div>
       </div>
-    </>
-    )
+    </div>
+  );
 }
 
-export default SigninAdminPage
+export default SigninAdminPage;
