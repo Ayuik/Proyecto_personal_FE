@@ -5,9 +5,6 @@ import SigninForm from "../components/SigninForm";
 import UserAdminHeader from "../components/UserAdminHeader";
 
 function SigninUserPage() {
-  const navigate = useNavigate();
-  const { setIsLogged } = useAuth();
-
    return (
     <>
       <UserAdminHeader />
@@ -19,7 +16,7 @@ function SigninUserPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <SigninForm navigate={navigate} redirectTo="/userpage" />
+            <SigninForm redirectTo="/userpage" />
 
           <p className="mt-10 text-center text-sm/6 text-gray-500">
             ¿Usuario nuevo?{" "}

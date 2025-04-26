@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { login } from "../services/loginapi";
+import { login } from "../services/authapi";
 import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
-function SigninForm({ navigate, redirectTo }) {
+function SigninForm({ redirectTo }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const { updateToken } = useAuth();
+  const navigate = useNavigate()
   
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,12 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import SigninForm from "../components/SigninForm";
 import UserAdminHeader from "../components/UserAdminHeader";
 
-function SigninAdminPage(){
-    const navigate = useNavigate("/adminhome");
-   
-
+function SigninAdminPage(){  
     return (
         <>
       <UserAdminHeader />
@@ -18,7 +15,7 @@ function SigninAdminPage(){
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <SigninForm navigate={navigate} redirectTo="/adminhome"/>
+            <SigninForm redirectTo="/adminhome"/>
           <p className="mt-10 text-center text-sm/6 text-gray-500">
             ¿Administrador nuevo?{" "}
             <Link

@@ -1,20 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
 import SignupForm from "../components/SignupForm";
 import UserAdminHeader from "../components/UserAdminHeader";
 
 function SignupUserPage() {
-  const navigate = useNavigate();
-  const { setIsLogged } = useAuth();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLogged(true);
-    navigate("/#home");
-    alert("Registro exitoso. Ya estás en tu cuenta");
-  };
-
   return (
     <>
       <UserAdminHeader />
@@ -26,9 +14,7 @@ function SignupUserPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <SignupForm />
-          </form>
+            <SignupForm redirectTo="/signinuserpage" role = "user"/>
         </div>
       </div>
     </>
