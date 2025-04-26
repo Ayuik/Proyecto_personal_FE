@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
+import { Link } from "react-router-dom";
 import SigninForm from "../components/SigninForm";
 import UserAdminHeader from "../components/UserAdminHeader";
 
 function SigninUserPage() {
-   return (
+  return (
     <div className="flex flex-col min-h-screen">
       <UserAdminHeader />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,7 +15,7 @@ function SigninUserPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <SigninForm redirectTo="/userpage" />
+          <SigninForm redirectTo="/userpage" />
 
           <p className="mt-10 text-center text-sm/6 text-gray-500">
             ¿Usuario nuevo?{" "}
