@@ -3,32 +3,39 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  // Inicializamos el token desde localStorage.
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [isLogged, setIsLogged] = useState(!!token);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [role, setRole] = useState(localStorage.getItem("role") || null);
 
-  // Sincronizamos el estado con localStorage.
+  const isLogged = !!token && role === "ROLE_USER";
+
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
-      setIsLogged(true);
     } else {
       localStorage.removeItem("token");
-      setIsLogged(false);
     }
   }, [token]);
 
-  // Función para actualizar el token.
-  const updateToken = (newToken) => {
-    setToken(newToken);
+  useEffect(() => {
+    if (role) {
+      localStorage.setItem("role", role);
+    } else {
+      localStorage.removeItem("role");
+    }
+  }, [role]);
+
+  const updateAuth = ({ token, role }) => {
+    setToken(token);
+    setRole(role);
   };
 
   const logout = () => {
     setToken(null);
+    setRole(null);
   };
-
+  
   return (
-    <AuthContext.Provider value={{ isLogged, token, updateToken, logout }}>
+    <AuthContext.Provider value={{ isLogged, token, role, updateAuth, logout }}>
       {children}
     </AuthContext.Provider>
   );

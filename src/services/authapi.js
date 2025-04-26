@@ -13,7 +13,6 @@ export async function login(username, password) {
         throw new Error(message);
       }
     
-  
     return await response.json();
   }
 

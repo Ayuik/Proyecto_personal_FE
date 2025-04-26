@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 function SigninForm({ redirectTo }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const { updateToken } = useAuth();
-  const navigate = useNavigate()
-  
+  const { updateAuth } = useAuth();
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -17,10 +17,13 @@ function SigninForm({ redirectTo }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { token } = await login(formData.username, formData.password);
-    updateToken(token);  
-    console.log("éxito");
-    navigate(redirectTo);
+      const { token, roleName } = await login(
+        formData.username,
+        formData.password
+      );
+      updateAuth({ token, role: roleName });
+      console.log("Successful login");
+      navigate(redirectTo);
     } catch (err) {
       console.log(err.message);
     }
