@@ -23,8 +23,12 @@ export function AuthProvider({ children }) {
     setToken(newToken);
   };
 
+  const logout = () => {
+    setToken(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ isLogged, token, updateToken }}>
+    <AuthContext.Provider value={{ isLogged, token, updateToken, logout }}>
       {children}
     </AuthContext.Provider>
   );

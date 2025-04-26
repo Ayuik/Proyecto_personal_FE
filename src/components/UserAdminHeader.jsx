@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 function UserAdminHeader() {
   const navigate = useNavigate();
-  const { setIsLogged } = useAuth();
+  const { logout } = useAuth();
   const handleLogout = (e) => {
     e.preventDefault();
-    setIsLogged(false); 
+    logout(); 
     navigate("/#home");
+    alert("Cierre de sesión exitoso!");
   };
 
   return (
