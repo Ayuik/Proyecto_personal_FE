@@ -11,7 +11,7 @@ function Header() {
     <header className="sticky top-0 z-10 bg-black text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
         <Link to="/#home" className="text-xl font-bold">
-          Gonzalo Blanco Ortiz
+          Gonza Whiplash
         </Link>
         <button
           className="md:hidden p-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"

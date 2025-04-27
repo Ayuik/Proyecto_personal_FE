@@ -148,19 +148,22 @@ function Contact() {
           <h3 className="text-xl font-semibold mb-4">Sígueme en redes</h3>
           <div className="flex space-x-4">
             <a
-              href="#"
+              href="https://www.instagram.com/kathedrale_studios_berron?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" rel="noopener noreferrer"
               className="h-10 w-10 flex items-center justify-center rounded-full bg-purple-100 hover:bg-purple-200 transition-colors text-purple-600"
             >
               <Instagram size={20} />
             </a>
             <a
-              href="#"
+              href="https://open.spotify.com/intl-es/artist/5qJLTldnRWvOm4r7nUOVNP"
+              target="_blank" rel="noopener noreferrer"
               className="h-10 w-10 flex items-center justify-center rounded-full bg-purple-100 hover:bg-purple-200 transition-colors text-purple-600"
             >
               <SpotifyIcon />
             </a>
             <a
-              href="#"
+              href="https://soundcloud.com/gonza_whiplash"
+              target="_blank" rel="noopener noreferrer"
               className="h-10 w-10 flex items-center justify-center rounded-full bg-purple-100 hover:bg-purple-200 transition-colors text-purple-600"
             >
               <SoundCloudIcon />

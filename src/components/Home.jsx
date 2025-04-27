@@ -30,7 +30,7 @@ function Home() {
     <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
       <div className="md:w-1/2 mb-10 md:mb-0">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Gonzalo Blanco Ortiz
+          Gonza Whiplash
         </h1>
         <h3 className="text-xl md:text-2xl text-purple-400 mb-6">
           Soy <span ref={typedElement}></span>
