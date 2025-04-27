@@ -7,7 +7,8 @@ export const endpoint = {
   videos: `${API_URL}/videos`,
   categories: `${API_URL}/categories`,
   login: `${API_URL}/login`,
-  register: `${API_URL}/register`
+  register: `${API_URL}/register`,
+  mail: `${API_URL}/mail`,
 };
 
 export function buildHeader(token) {
