@@ -1,47 +1,47 @@
 # 🎶 Portfolio - Frontend  
-Bienvenidxs a mi proyecto final individual para el bootcamp de [Factoría F5](https://www.factoriaf5.com/) en el que me formo como desarrolladora full stack. 🚀 Este es el **frontend** de un sitio web estilo portfolio diseñado para fortalecer la presencia digital de un productor musical, músico sesionista y compositor.
+Welcome to my final individual project for the [Factoría F5](https://www.factoriaf5.com/) bootcamp, where I'm training as a full-stack developer. 🚀 This is the **frontend** of a portfolio-style website designed to enhance the digital presence of a music producer, session musician, and composer.
 
 ---
 
-## 📖 Descripción del Proyecto  
+## 📖 Project Description  
 
-El objetivo principal de este proyecto es desarrollar una **página web profesional** que cumpla varias funciones clave:
+The main goal of this project is to develop a **professional website** that serves several key functions:
 
-- **Servicios Personalizados**  
-  - Información detallada sobre los servicios de músico sesionista y productor musical.  
-  - Sistema de contacto para consultas y contratación.
+- **Personalized Services**  
+  - Detailed information about session musician and music production services.  
+  - Contact system for inquiries and hiring.
 
-- **Tienda de Cursos en Video**  
-  - Espacio para la venta de cursos en formato video relacionados con música y producción musical.  
-  - Integración de pasarelas de pago seguras y funcionalidades para descargas o streaming de cursos adquiridos.
+- **Video Course Store**  
+  - Space for selling video courses related to music and production.  
+  - Secure payment gateways integration and features for downloading or streaming purchased courses.
 
-- **Gestión Administrativa**  
-  - Panel de administración para gestionar servicios, cursos y transacciones realizadas.  
+- **Administrative Management**  
+  - An admin panel to manage services, courses, and transactions.
 
-- **Panel de Usuario**  
-  - Área personalizada donde los usuarios pueden acceder y gestionar el contenido de los cursos comprados, consultando sus materiales y realizando el seguimiento de su aprendizaje.  
-
----
-
-## 💻 Alcance Técnico  
-
-Este proyecto es **full stack**. En **Front-End** se ha implementado una **SPA (Single Page Application)** utilizando **React**, gestionando estilos con **TailwindCSS** y animaciones con **AOS**.
+- **User Dashboard**  
+  - A personalized area where users can access and manage their purchased courses, review materials, and track their learning progress.
 
 ---
 
-## 🛠️ Tecnologías y Dependencias  
+## 💻 Technical Scope  
 
-El proyecto utiliza las siguientes tecnologías:
+This project is **full stack**. The **Front-End** has been developed as a **Single Page Application (SPA)** using **React**, with styling managed through **TailwindCSS** and animations handled by **AOS**.
+
+---
+
+## 🛠️ Technologies and Dependencies  
+
+The project uses the following technologies:
 
 - **React** (v19.0.0)  
-- **React Router Dom** (v7.5.0) para navegación  
-- **TailwindCSS** para el diseño y estilizado  
-- **Typed.js** y **react-typed** para efectos de escritura animada  
-- **AOS** para animaciones en scroll  
-- **Lucide React** para iconografía  
-- **Vite** como herramienta de desarrollo  
+- **React Router Dom** (v7.5.0) for navigation  
+- **TailwindCSS** for design and styling  
+- **Typed.js** and **react-typed** for typing animation effects  
+- **AOS** for scroll animations  
+- **Lucide React** for iconography  
+- **Vite** as a development tool  
 
-Las dependencias principales en `package.json` incluyen:  
+The key dependencies listed in `package.json` include:  
 - `react`  
 - `react-dom`  
 - `react-router-dom`  
@@ -54,67 +54,67 @@ Las dependencias principales en `package.json` incluyen:
 
 ---
 
-## 🚀 Configuración y Ejecución  
+## 🚀 Setup and Execution  
 
-### Prerrequisitos  
+### Prerequisites  
 
-- [Node.js](https://nodejs.org/) (v18 o superior)  
-- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)  
+- [Node.js](https://nodejs.org/) (v18 or later)  
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)  
 
-### Pasos para levantar el proyecto  
+### Steps to run the project  
 
-1. **Clonar el repositorio:**  
+1. **Clone the repository:**  
 
     ```bash
     git clone https://github.com/Ayuik/Proyecto_personal_FE.git
     cd Proyecto_personal_FE
     ```
 
-2. **Instalar dependencias:**  
+2. **Install dependencies:**  
 
     ```bash
     npm install
     ```
 
-3. **Iniciar la aplicación:**  
+3. **Start the application:**  
 
     ```bash
     npm run dev
     ```
 
-   La aplicación se ejecutará en el puerto configurado por Vite (por defecto, `5173`).  
+   The application will run on the port configured by Vite (default: `5173`).  
 
 ---
 
-## 📚 Funcionalidades Clave  
+## 📚 Key Features  
 
-- **Interfaz intuitiva y responsiva:**  
-  Diseño adaptado a distintos dispositivos y pantallas.  
+- **Intuitive and responsive UI:**  
+  Design adapted to various devices and screen sizes.  
 
-- **Autenticación y seguridad:**  
-  Integración con el backend para autenticación con JWT.  
+- **Authentication and security:**  
+  Integration with the backend for authentication using JWT.  
 
-- **Gestión de Contenido:**  
-  Visualización y administración de cursos, videos y perfiles de usuario.  
+- **Content Management:**  
+  Viewing and administration of courses, videos, and user profiles.  
 
-- **Experiencia del usuario optimizada:**  
-  Animaciones fluidas y navegación intuitiva.  
+- **Optimized user experience:**  
+  Smooth animations and intuitive navigation.  
 
-- **Comunicación con el backend:**  
-  Uso de `fetch` para realizar peticiones a la API del backend.  
-
----
-
-## 🤝 Contribuciones  
-
-¡Todas las contribuciones son bienvenidas! Si encuentras algún error o tienes sugerencias de mejora, por favor abre un *issue* o un *pull request* en este repositorio.  
+- **Backend communication:**  
+  Using `fetch` to perform API requests.  
 
 ---
 
-## ⭐️ Licencia  
+## 🤝 Contributions  
 
-Este proyecto es de código abierto. ¡Siéntete libre de usar, modificar y distribuir bajo los términos de la licencia que corresponda!  
+All contributions are welcome! If you find any issues or have improvement suggestions, please open an *issue* or a *pull request* in this repository.  
 
 ---
 
-¡Gracias por visitar **Portfolio** y por tu interés en este proyecto! 🎵✨  
+## ⭐️ License  
+
+This project is open-source. Feel free to use, modify, and distribute it under the applicable license terms!  
+
+---
+
+Thanks for visiting **Portfolio** and for your interest in this project! 🎵✨  
