@@ -1,21 +1,7 @@
-import { useState, useEffect } from "react";
-import { getWorks } from "../services/worksapi";
 import { Link } from "react-router-dom";
 import WorksCards from "./WorksCards";
 
 function Works() {
-  /* const [someWorks, setSomeWorks] = useState([]);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        
-          const data = await getWorks();
-          setSomeWorks(data.slice(0, 3));
-        
-      };
-      fetchData();
-    }, [getWorks]); */
-
   const someWorks = [
     {
       id_work: 1,

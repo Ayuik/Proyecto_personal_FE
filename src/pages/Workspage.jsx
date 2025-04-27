@@ -3,18 +3,6 @@ import Header from "../components/Header";
 
 
 function WorksPage() {
-  /* const [allWorks, setAllWorks] = useState([]);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        
-          const data = await getWorks();
-          setAllWorks(data);
-        
-      };
-      fetchData();
-    }, [getWorks]); */
-
   const allWorks = [
     {
       id_work: 1,
