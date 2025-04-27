@@ -21,7 +21,7 @@ function HomePage() {
   }, [location]);
 
     return (
-        <>
+        <div className="flex flex-col min-h-screen">
             <Header />
             <section id="home" className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
                 <Home />
@@ -41,7 +41,7 @@ function HomePage() {
             <section id="contact" className="py-20 bg-white">
                 <Contact />
             </section>     
-        </>
+        </div>
     );
 }
 
