@@ -17,7 +17,6 @@ function VideoEdit({ video, onCancel, onSave }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Si videoId es null, eliminamos la propiedad para la creación
     const payload = { ...videoData };
     if (payload.videoId === null) {
       delete payload.videoId;

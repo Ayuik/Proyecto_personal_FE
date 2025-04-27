@@ -8,7 +8,7 @@ import { useAuth } from "./AuthContext";
 
 function CourseVideos({ course, onBack }) {
   const [videos, setVideos] = useState(course.videos || []);
-  const [videoMode, setVideoMode] = useState(null); // null, "add" o "edit"
+  const [videoMode, setVideoMode] = useState(null);
   const [editingVideo, setEditingVideo] = useState(null);
 
   const {token} = useAuth();
@@ -35,7 +35,7 @@ function CourseVideos({ course, onBack }) {
       console.error("handleSaveVideo recibió undefined");
       return;
     }
-    // Si existe videoId, se hace PUT, de lo contrario POST.
+
     if (videoData.videoId) {
       try {
         const result = await updateVideo(videoData, token);
@@ -50,7 +50,6 @@ function CourseVideos({ course, onBack }) {
     } else {
       try {
         const result = await addVideoToCourse(course.courseId, videoData, token);
-        // Se asume que el backend retorna el video con su id asignado.
         setVideos((prev) => [...prev, result]);
       } catch (error) {
         console.error("Error al crear el video:", error);

@@ -12,7 +12,6 @@ function VideoFrame({ videoLink }) {
     return <p>URL de YouTube no válida</p>;
   }
 
-  //const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   return (

@@ -14,8 +14,7 @@ function UserPage() {
       courseDescription: "Descripción del curso 1",
       courseVideos: 32,
       courseCategory: {categoryName: "Produccion musical" },
-      course_price: 99.99,
-      course_cover:
+      courseCover:
         "https://cdn.pixabay.com/photo/2014/01/31/21/39/recording-255869_1280.jpg",
     },
   ];
